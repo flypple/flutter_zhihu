@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zhihu/global_config.dart';
 import 'follow.dart';
 import 'recommend.dart';
 import 'hot.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
       child: Container(
         child: Scaffold(
           appBar: AppBar(
-            title: Text("首页"),
+            title: SearchBar(),
             bottom: TabBar(
               labelColor: Color(0xFF63FDD9),
               unselectedLabelColor: Colors.white,
@@ -43,6 +44,49 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(4)),
+        color: GlobalConfig.searchBackgroundColor,
+      ),
+      child: Row(
+        children: <Widget>[
+          Container(
+            child: Expanded(
+              child: FlatButton.icon(
+                onPressed: (){
+
+                },
+                icon: Icon(Icons.search, color: GlobalConfig.fontColor, size: 16,),
+                label: Container(
+                  child: Text("字节锤子", style: TextStyle(color: GlobalConfig.fontColor),),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            width: 1,
+            height: 14,
+            color: GlobalConfig.fontColor,
+          ),
+          Container(
+            child: FlatButton.icon(
+              onPressed: (){},
+              icon: Icon(Icons.border_color, color: GlobalConfig.fontColor, size: 14,),
+              label: Container(
+                child: Text("提问", style: TextStyle(color: GlobalConfig.fontColor),),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
