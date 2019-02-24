@@ -3,6 +3,7 @@ import 'package:flutter_zhihu/global_config.dart';
 import 'follow.dart';
 import 'recommend.dart';
 import 'hot.dart';
+import 'search_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -35,13 +36,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 Tab(text: "热榜",),
               ],
             ),
+            elevation: 0,
           ),
-          body: TabBarView(
-            children: [
-              Follow(),
-              Recommend(),
-              Hot(),
-            ],
+          body: Container(
+            child: TabBarView(
+              children: [
+                Follow(),
+                Recommend(),
+                Hot(),
+              ],
+            ),
+            color: GlobalConfig.backgroundColor,
           ),
         ),
       ),
@@ -63,7 +68,9 @@ class SearchBar extends StatelessWidget {
             child: Expanded(
               child: FlatButton.icon(
                 onPressed: (){
-
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context)=>SearchPage(),
+                  ));
                 },
                 icon: Icon(Icons.search, color: GlobalConfig.fontColor, size: 16,),
                 label: Container(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zhihu/pages/index/index.dart';
+import 'global_config.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
+      theme: GlobalConfig.themeData,
       home: Index(),
       debugShowCheckedModeBanner: false,
     );

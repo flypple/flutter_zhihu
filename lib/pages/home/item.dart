@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zhihu/pages/home/data/article.dart';
 import 'package:flutter_zhihu/global_config.dart';
 import 'data/question.dart';
+import 'reply_page.dart';
 
 class ArticleItem extends StatelessWidget {
   final Article article;
@@ -81,9 +82,13 @@ class ArticleItem extends StatelessWidget {
 
     return Container(
       margin: const EdgeInsets.only(top: 5, bottom: 5),
-      color: GlobalConfig.backgroundColor,
+      color: GlobalConfig.itemBackgroundColor,
       child: FlatButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return ReplyPage();
+          }));
+        },
         child: Column(
           children: <Widget>[
             userInfoWidget,
@@ -152,7 +157,7 @@ class BillboardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 5, bottom: 5),
-      color: GlobalConfig.backgroundColor,
+      color: GlobalConfig.itemBackgroundColor,
       child: FlatButton(
         onPressed: (){
 
@@ -250,13 +255,17 @@ class HotItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: new BoxDecoration(
-          color: GlobalConfig.backgroundColor,
+          color: GlobalConfig.itemBackgroundColor,
           border: new BorderDirectional(
               bottom: new BorderSide(color: Colors.white12)
           )
       ),
       child: FlatButton(
-        onPressed: (){},
+        onPressed: (){
+          Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return ReplyPage();
+          }));
+        },
         child: Container(
           child: Row(
             children: <Widget>[
