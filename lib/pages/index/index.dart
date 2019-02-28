@@ -5,6 +5,7 @@ import 'package:flutter_zhihu/pages/idea/idea_page.dart';
 import 'package:flutter_zhihu/pages/university/university_page.dart';
 import 'package:flutter_zhihu/pages/notice/notice_page.dart';
 import 'package:flutter_zhihu/pages/my/my_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Index extends StatefulWidget {
   @override
@@ -76,6 +77,8 @@ class _IndexState extends State<Index> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+
+    ScreenUtil.instance = ScreenUtil(width: 1080, height: 1920,)..init(context);
 
     var bottomNavigationBar = BottomNavigationBar(
       items: _navitionItems.map((navigationItem)=>navigationItem.item).toList(),

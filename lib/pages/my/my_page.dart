@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zhihu/global_config.dart';
 import 'package:flutter_zhihu/pages/home/search_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyPage extends StatefulWidget {
   @override
@@ -30,9 +31,12 @@ class _MyPageState extends State<MyPage> {
   Widget _createItem2(String title, IconData icon, Color color){
     return Container(
       width: MediaQuery.of(context).size.width / 4,
+      height: ScreenUtil().setHeight(180),
       child: FlatButton(
+        padding: EdgeInsets.all(0),
         onPressed: () {},
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CircleAvatar(
               radius: 20,
@@ -190,35 +194,36 @@ class _MyPageState extends State<MyPage> {
             ),
           ),
           Container(
+            height: ScreenUtil().setHeight(480),
             margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.only(top: 10, bottom: 8),
-            child: Row(
+            padding: EdgeInsets.only(left: 12, top: 4, right: 12, bottom: 4),
+            color: GlobalConfig.itemBackgroundColor,
+            child: GridView.count(
+              crossAxisCount: 4,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 10,
+              physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 _createItem2("学习记录", Icons.chrome_reader_mode, Colors.blueAccent),
                 _createItem2("已购", Icons.shopping_basket, Colors.lightBlueAccent),
                 _createItem2("余额礼券", Icons.credit_card, Colors.blueAccent),
                 _createItem2("我的Live", Icons.flash_on, Colors.blue),
-              ],
-            ),
-            color: GlobalConfig.itemBackgroundColor,
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 10, bottom: 8),
-            child: Row(
-              children: <Widget>[
                 _createItem2("我的书架", Icons.book, Colors.green),
                 _createItem2("下载中心", Icons.file_download, Colors.deepOrange),
                 _createItem2("付费咨询", Icons.monetization_on, Colors.amber),
                 _createItem2("活动广场", Icons.extension, Colors.deepPurpleAccent),
               ],
             ),
-            color: GlobalConfig.itemBackgroundColor,
           ),
           Container(
+            height: ScreenUtil().setHeight(240),
             margin: EdgeInsets.only(top: 10),
-            padding: EdgeInsets.only(top: 10, bottom: 8),
             alignment: Alignment.centerLeft,
-            child: Row(
+            padding: EdgeInsets.only(top: 2),
+            child: GridView.count(
+              crossAxisCount: 4,
+              crossAxisSpacing: 20,
+              physics: NeverScrollableScrollPhysics(),
               children: <Widget>[
                 _createItem2("社区建设", Icons.invert_colors, Colors.orangeAccent),
                 _createItem2("反馈与帮助", Icons.flag, Colors.blueGrey),
